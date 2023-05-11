@@ -1,5 +1,5 @@
 from django.core.mail import send_mail
-
+from decouple import config
 
 
 
@@ -8,7 +8,7 @@ def send_activation_code(email, activation_code):
     message =''''''
     html = f"""
     <h1>перейдите по ссылке</h1>
-    <a href="http://127.0.0.1:8000/api/v1/account/activate/{activation_code}">
+    <a href="{config('LINK')}api/v1/account/activate/{activation_code}">
     <button>Activate</button>
     </a>
 
